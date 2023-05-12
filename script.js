@@ -22,14 +22,15 @@ document.getElementById('età_persona').innerHTML += passengerAge;
 
 const pricePerKm = 0.21;
 
-const totalPrice = quantityKm / pricePerKm + '€';
+const totalPrice = pricePerKm * quantityKm + '€';
+document.getElementById('prezzo_totale').innerHTML += totalPrice;
 
 
 // * applico lo sconto ai minorenni e agli over 65
 if(passengerAge < 18){
-    totalPrice = totalPrice - ((20 / 100) * totalPrice);
+     totalPrice = totalPrice - ((20 / 100) * totalPrice);
 
-} else(passengerAge >= 65){
-    totalPrice = totalPrice - ((40 / 100) * totalPrice);
+ } else if(passengerAge >= 65){
+     totalPrice = totalPrice - ((40 / 100) * totalPrice);
 }
 

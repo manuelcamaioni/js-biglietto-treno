@@ -22,7 +22,7 @@ document.getElementById('età_persona').innerHTML += passengerAge;
 
 const pricePerKm = 0.21;
 
-let totalPrice = pricePerKm * quantityKm + '€';
+let totalPrice;
 let totalPrice20;
 let totalPrice40;
 

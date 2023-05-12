@@ -19,23 +19,32 @@ document.getElementById('percorso').innerHTML += quantityKm;
 const passengerAge = parseInt(prompt('Inserire l\'età del passeggero/a: '))
 document.getElementById('età_persona').innerHTML += passengerAge;
 
+let result;
+
+if(isNaN(passengerAge) || isNaN(quantityKm)){
+    result = 'Errore nella digitazione';
+    window.alert(result);
+}
 
 const pricePerKm = 0.21;
 
-const totalPrice = pricePerKm * quantityKm + '€';
+const totalPrice = pricePerKm * quantityKm;
 let totalPrice20;
 let totalPrice40;
-
+let showDecimals;
 
 // * applico lo sconto ai minorenni e agli over 65
 if(passengerAge < 18){
-    totalPrice20 = (pricePerKm * quantityKm) - ((20 / 100) * totalPrice) + '€';
-     document.getElementById('prezzo_totale').innerHTML += totalPrice20;
+    totalPrice20 = (pricePerKm * quantityKm) - ((20 / 100) * totalPrice);
+     showDecimals = totalPrice20.toFixed(2);
+     document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
 
  } else if(passengerAge >= 65){
-    totalPrice40 = (pricePerKm * quantityKm) - ((40 / 100) * totalPrice) + '€';
-    document.getElementById('prezzo_totale').innerHTML += totalPrice40;
+    totalPrice40 = (pricePerKm * quantityKm) - ((40 / 100) * totalPrice);
+    showDecimals = totalPrice40.toFixed(2);
+    document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
 } else{
-    document.getElementById('prezzo_totale').innerHTML += totalPrice;
+    showDecimals = totalPrice.toFixed(2)
+    document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
 }
 

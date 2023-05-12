@@ -14,7 +14,22 @@ const quantityKm = parseInt(prompt('Inserire quanti kilometri percorrere: '));
 document.getElementById('percorso').innerHTML += quantityKm;
 
 // * tramite il prompt stampo sulla pagina
-// * il numero di chilometri che l'utente digita
+// * l'età del passeggero che l'utente digita
 
 const passengerAge = parseInt(prompt('Inserire l\'età del passeggero/a: '))
 document.getElementById('età_persona').innerHTML += passengerAge;
+
+
+const pricePerKm = 0.21;
+
+const totalPrice = quantityKm / pricePerKm + '€';
+
+
+// * applico lo sconto ai minorenni e agli over 65
+if(passengerAge < 18){
+    totalPrice = totalPrice - ((20 / 100) * totalPrice);
+
+} else(passengerAge >= 65){
+    totalPrice = totalPrice - ((40 / 100) * totalPrice);
+}
+

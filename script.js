@@ -11,26 +11,30 @@
 // * il numero di chilometri che l'utente digita
 
 const quantityKm = parseInt(prompt('Inserire quanti kilometri percorrere: '));
-document.getElementById('percorso').innerHTML += quantityKm + 'km';
+
 
 // * tramite il prompt stampo sulla pagina
 // * l'età del passeggero che l'utente digita
 
-const passengerAge = parseInt(prompt('Inserire l\'età del/la passeggero/a: '))
-
-
-if(passengerAge == 1){
-    document.getElementById('età_persona').innerHTML += passengerAge + ' anno';
-}else{
-    document.getElementById('età_persona').innerHTML += passengerAge + ' anni';
-}
+const passengerAge = parseInt(prompt('Inserire l\'età del/la passeggero/a: '));
 
 let result;
 
 if(isNaN(passengerAge) || isNaN(quantityKm)){
     result = 'Errore nella digitazione';
     window.alert(result);
+    document.getElementById('percorso').innerHTML += 'valore non valido';
+    document.getElementById('età_persona').innerHTML += 'valore non valido';
+
     throw new Error('Errore nella digitazione');
+}
+
+document.getElementById('percorso').innerHTML += quantityKm + 'km';
+
+if(passengerAge == 1){
+    document.getElementById('età_persona').innerHTML += passengerAge + ' anno';
+}else{
+    document.getElementById('età_persona').innerHTML += passengerAge + ' anni';
 }
 
 const pricePerKm = 0.21;

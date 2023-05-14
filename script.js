@@ -16,7 +16,7 @@ document.getElementById('percorso').innerHTML += quantityKm + 'km';
 // * tramite il prompt stampo sulla pagina
 // * l'età del passeggero che l'utente digita
 
-const passengerAge = parseInt(prompt('Inserire l\'età del passeggero/a: '))
+const passengerAge = parseInt(prompt('Inserire l\'età del/la passeggero/a: '))
 
 
 if(passengerAge == 1){

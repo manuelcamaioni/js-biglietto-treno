@@ -30,6 +30,7 @@ let result;
 if(isNaN(passengerAge) || isNaN(quantityKm)){
     result = 'Errore nella digitazione';
     window.alert(result);
+    throw new Error('Errore nella digitazione');
 }
 
 const pricePerKm = 0.21;

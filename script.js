@@ -11,13 +11,19 @@
 // * il numero di chilometri che l'utente digita
 
 const quantityKm = parseInt(prompt('Inserire quanti kilometri percorrere: '));
-document.getElementById('percorso').innerHTML += quantityKm;
+document.getElementById('percorso').innerHTML += quantityKm + 'km';
 
 // * tramite il prompt stampo sulla pagina
 // * l'età del passeggero che l'utente digita
 
 const passengerAge = parseInt(prompt('Inserire l\'età del passeggero/a: '))
-document.getElementById('età_persona').innerHTML += passengerAge;
+
+
+if(passengerAge == 1){
+    document.getElementById('età_persona').innerHTML += passengerAge + ' anno';
+}else{
+    document.getElementById('età_persona').innerHTML += passengerAge + ' anni';
+}
 
 let result;
 
@@ -35,16 +41,16 @@ let showDecimals;
 
 // * applico lo sconto ai minorenni e agli over 65
 if(passengerAge < 18){
-    totalPrice20 = (pricePerKm * quantityKm) - ((20 / 100) * totalPrice);
-     showDecimals = totalPrice20.toFixed(2);
-     document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
+        totalPrice20 = (pricePerKm * quantityKm) - ((20 / 100) * totalPrice);
+        showDecimals = totalPrice20.toFixed(2);
+        document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
 
  } else if(passengerAge >= 65){
-    totalPrice40 = (pricePerKm * quantityKm) - ((40 / 100) * totalPrice);
-    showDecimals = totalPrice40.toFixed(2);
-    document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
+        totalPrice40 = (pricePerKm * quantityKm) - ((40 / 100) * totalPrice);
+        showDecimals = totalPrice40.toFixed(2);
+        document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
 } else{
-    showDecimals = totalPrice.toFixed(2)
-    document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
-}
+        showDecimals = totalPrice.toFixed(2)
+        document.getElementById('prezzo_totale').innerHTML += showDecimals + '€';
+    }
 
